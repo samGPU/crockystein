@@ -1,10 +1,30 @@
 extends CharacterBody3D
 
-
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-const TURN_SPEED = 0.05
+const MOUSE_SENSITIVITY = 0.1  # Adjust sensitivity as needed
 
+var yaw := 0.0  # Horizontal rotation
+var pitch := 0.0  # Vertical rotation (if needed for a camera)
+
+func _ready() -> void:
+	# Capture the mouse for FPS-style control
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		# Adjust yaw and pitch based on mouse motion
+		yaw -= event.relative.x * MOUSE_SENSITIVITY
+		pitch -= event.relative.y * MOUSE_SENSITIVITY
+		pitch = clamp(pitch, -30.0, 30.0)  # Limit vertical rotation to avoid flipping
+
+		# Apply rotation to the player
+		self.rotation_degrees.y = yaw
+
+		# If you have a camera as a child node, rotate it for pitch
+		var head = $Head
+		if head:
+			head.rotation_degrees.x = pitch
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -16,7 +36,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
@@ -26,9 +45,4 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
-	if Input.is_action_just_pressed("ui_left"):
-		self.rotate_y(TURN_SPEED)
-	if Input.is_action_just_pressed("ui_right"):
-		self.rotate_y(-TURN_SPEED)
-	
 	move_and_slide()
