@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const SPEED = 6.0
+const JUMP_VELOCITY = 5.5
 const MOUSE_SENSITIVITY = 0.1  # Adjust sensitivity as needed
 
 var yaw := 0.0  # Horizontal rotation
