@@ -11,8 +11,14 @@ func _ready() -> void:
 	# Capture the mouse for FPS-style control
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+func _on_click_event() -> void:
+	print("Click event triggered!")
+
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		_on_click_event()
+		
+	elif event is InputEventMouseMotion:
 		# Adjust yaw and pitch based on mouse motion
 		yaw -= event.relative.x * MOUSE_SENSITIVITY
 		pitch -= event.relative.y * MOUSE_SENSITIVITY
