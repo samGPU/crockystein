@@ -1,27 +1,87 @@
-[gd_scene load_steps=9 format=3 uid="uid://krdpxjex7kub"]
+[gd_scene load_steps=24 format=3 uid="uid://krdpxjex7kub"]
 
 [ext_resource type="Texture2D" uid="uid://b0363wxcioteb" path="res://assets/wolfweapons.png" id="1_fyqef"]
 [ext_resource type="Script" uid="uid://dedgaxldddlib" path="res://ui.gd" id="1_m6e0p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6e0p"]
 atlas = ExtResource("1_fyqef")
-region = Rect2(0, 0, 64, 32)
+region = Rect2(0, 96, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_27fn8"]
 atlas = ExtResource("1_fyqef")
-region = Rect2(64, 0, 64, 32)
+region = Rect2(64, 96, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nltto"]
 atlas = ExtResource("1_fyqef")
-region = Rect2(128, 0, 64, 32)
+region = Rect2(128, 96, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ibotj"]
 atlas = ExtResource("1_fyqef")
-region = Rect2(192, 0, 64, 32)
+region = Rect2(192, 96, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n5ude"]
 atlas = ExtResource("1_fyqef")
+region = Rect2(256, 96, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvb2n"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os5c7"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2p7n"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkygq"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sosvr"]
+atlas = ExtResource("1_fyqef")
 region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4yjw"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_waa4j"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(64, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok7cu"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(128, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irxef"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(192, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2l4f"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(256, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5rqp"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs482"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(64, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxd00"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(128, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etlur"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(192, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rqds"]
+atlas = ExtResource("1_fyqef")
+region = Rect2(256, 64, 64, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y4yjw"]
 animations = [{
@@ -29,8 +89,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m6e0p")
 }],
-"loop": true,
-"name": &"knife_idle",
+"loop": false,
+"name": &"chain_idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -47,7 +107,82 @@ animations = [{
 "texture": SubResource("AtlasTexture_n5ude")
 }],
 "loop": false,
-"name": &"stab",
+"name": &"chain_shoot",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvb2n")
+}],
+"loop": false,
+"name": &"knife_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os5c7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2p7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkygq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sosvr")
+}],
+"loop": false,
+"name": &"knife_stab",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4yjw")
+}],
+"loop": false,
+"name": &"pistol_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_waa4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok7cu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irxef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2l4f")
+}],
+"loop": false,
+"name": &"pistol_shoot",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5rqp")
+}],
+"loop": false,
+"name": &"rifle_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gs482")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxd00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etlur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rqds")
+}],
+"loop": false,
+"name": &"rifle_shoot",
 "speed": 16.0
 }]
 
@@ -58,8 +193,8 @@ script = ExtResource("1_m6e0p")
 position = Vector2(563, 393)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_y4yjw")
-animation = &"stab"
-autoplay = "knife_idle"
+animation = &"rifle_shoot"
+autoplay = "rifle_idle"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
